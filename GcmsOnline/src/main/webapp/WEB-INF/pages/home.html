@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link th:href="@{/css/jquery/jquery-ui.css}"	href="../../css/jquery/jquery-ui.css" rel="stylesheet" /> 
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link th:href="@{/css/site.css}" href="../css/site.css" rel="stylesheet" />
+    
+    
+     <script th:src="@{/js/ajax/dojo.js}" src="../../js/ajax/dojo.js"></script>
+        <script th:src="@{/js/ajax/Spring.js}" src="../../js/ajax/Spring.js"></script>
+        <script th:src="@{/js/ajax/Spring-Dojo.js}" src="../../js/ajax/Spring-Dojo.js"></script>
+        
+</head>
+<body>
+    <header>
+        <div class="header-row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                <a href="\" title="Dun &amp;  Bradstreet">
+                   <!-- <img src="resources/images/dnb-logo-white.png" /> -->
+                   <img th:src="@{/images/dnb-logo-white.png}" />                    
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right hide">
+                <a class="btn-sm btn-warning" href="#" title="Login">Login</a>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                <span class="btn-sm btn-default"><span class="hidden-xs">Welcome, </span>KilariK</span><a class="btn-sm btn-warning" href="#" title="Logout">Logout</a>
+            </div>
+        </div>
+    </header>
+    
+    
+<form th:id="home" method="post" th:action="@{/home}" th:object="${dunsSearchInfo}">
+    
+    <div class="container-fluid main-container-div">
+        <div class="home-my-list-btn text-center">
+            <a class="btn-lg btn-warning" href="#">My List</a>
+
+            <div class="home-search-bar-cont">
+                <div class="input-group input-group-lg">
+                    <div class="input-group-btn" id="search-button">
+                        <button type="button" class="btn-lg btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Company<span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#">Company</a></li>
+                          <li><a href="#">Industry</a></li>
+                          <li><a href="#">Jira</a></li>
+                        </ul>
+                    </div>
+                    <input type="text" id="duns" th:field="*{dunsInput}"/>
+                    <div class="input-group-btn">
+                        <input type="submit" id="companySearch" class="btn-lg btn-warning dropdown-toggle" value="Submit"/>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <footer>
+        <div class="footer-row">
+            <div class="text-center">
+                &#169;2017 Hoover's, Inc. All Rights Reserved.
+            </div>
+        </div>
+        <!-- Load JS files -->
+        <!-- <script src="resources/jquery/jquery-3.2.1.min.js"></script> -->
+        <script th:src="@{/js/jquery/jquery-3.2.1.min.js}" src="../../js/jquery/jquery-3.2.1.min.js"/>
+        <script th:src="@{/js/jquery/jquery-ui.min.js}" src="../../js/jquery/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+        <script th:src="@{/js/bootstrap.min.js}" src="../js/bootstrap.min.js"></script>
+        <script th:src="@{/js/tinymce/tinymce.min.js}" src="../../js/tinymce/tinymce.min.js"></script>
+        
+
+        <script type="text/javascript">
+            tinymce.init({
+                selector: '.rich-text-editor-required',
+                branding: false,
+                menubar: false,
+                browser_spellcheck: true,
+                fontsize_formats: "8pt 10pt 12pt 14pt 16pt 18pt 20pt 22pt 24pt 26pt 28pt 30pt 32pt 34pt 36pt",
+                block_formats: 'Paragraph=p;Div=div;Pre=pre;Blockquote=blockquote;Header 1=h1;Header 2=h2;Header 3=h3;Header 4=h4',
+                toolbar1: 'newdocument | bold italic underline strikethrough code | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | undo redo | forecolor backcolor | table | charmap image link hr insertdatetime | codesample anchor | searchreplace visualblocks visualchars preview print | formatselect fontsizeselect',
+                height: 200,
+                plugins: 'code lists preview charmap image link hr textcolor colorpicker insertdatetime visualblocks codesample print wordcount table searchreplace anchor advlist autolink visualchars'
+            });
+            function changeTab(index) {
+                $('#comp-edit-body-1').addClass('hide');
+                $('#comp-edit-body-2').addClass('hide');
+                $('#comp-edit-body-3').addClass('hide');
+                $('#comp-edit-body-4').addClass('hide');
+                $('#comp-edit-tab-1').removeClass('active');
+                $('#comp-edit-tab-2').removeClass('active');
+                $('#comp-edit-tab-3').removeClass('active');
+                $('#comp-edit-tab-4').removeClass('active');
+
+                $('#comp-edit-body-' + index).removeClass('hide');
+                $('#comp-edit-tab-' + index).addClass('active');
+            }
+            $(function () {
+                $(".datepicker").datepicker();
+            });
+            
+            
+            
+    		function dunsSearch(){
+    			var dunsNo = document.getElementById('searchInput').value
+            	alert(dunsNo)
+            	$.ajax({
+			        type: "POST",
+			        contentType: "application/json",
+			        url: "/dunsSearch",
+			        //data: JSON.stringify(document.getElementById('searchInput').value),
+			        //data: {duns:dunsNo},
+			        data:JSON.stringify({duns: dunsNo}),
+			        //dataType: 'json',
+			        cache: false,
+			        timeout: 600000,
+			        success: function (data) {
+			        console.log("inside success");
+			        	$('#feedback').html(data.duns);
+			        alert(data);
+			        alert(data.duns);
+			            //var json = "<h4>Ajax Response</h4><pre>"
+			               // + JSON.stringify(data, null, 4) + "</pre>";
+			            //$('#dunsDatas').html(data);
+			            //console.log("SUCCESS : ", JSON.stringify(data, null, 4));
+			            //console.log(${"dunsDetails"});
+			        },
+			        error: function (e) {
+						console.log("inside error");	
+			            var json = "<h4>Ajax Response</h4><pre>"
+			                + e.responseText + "</pre>";
+			            $('#dunsDatas').html(json);
+			
+			            console.log("ERROR : ", e);			
+			        }
+			    });
+            }
+    
+    
+    		
+    	//Spring.addDecoration(
+        	//new Spring.AjaxEventDecoration({formId:'homePage',elementId:'companySearch',event:'onclick'}));
+		
+		/*Spring.addDecoration(new Spring.AjaxEventDecoration({
+			formId : 'home',
+			elementId : 'companySearch',
+			event : 'onclick',
+			params : {
+				fragments : "search-results"
+			}
+		})
+		);*/
+		
+
+        </script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,184 @@
+@font-face {
+    font-family: AdventProLight;
+    src: url(fonts/AdventPro-Light.ttf);
+}
+
+@font-face {
+    font-family: AdventProRegular;
+    src: url(fonts/AdventPro-Regular.ttf);
+}
+
+@font-face {
+    font-family: QuicksandRegular;
+    src: url(fonts/Quicksand-Regular.otf);
+}
+
+@font-face {
+    font-family: ActorRegular;
+    src: url(fonts/Actor-Regular.ttf);
+}
+
+@font-face {
+    font-family: AdaminaRegular;
+    src: url(fonts/Adamina-Regular.ttf);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+.padding30 {
+    padding: 30px;
+}
+
+.padding10 {
+    padding: 10px;
+}
+
+.paddingtop5 {
+    padding-top: 5px;
+}
+
+.paddingtop10 {
+    padding-top: 10px;
+}
+
+.paddingtop30 {
+    padding-top: 30px;
+}
+
+.paddingbottom5 {
+    padding-bottom: 5px;
+}
+
+.paddingbottom10 {
+    padding-bottom: 10px;
+}
+
+.paddingbottom30 {
+    padding-bottom: 30px;
+}
+
+.margintop10 {
+    margin-top: 10px;
+}
+
+.margintop30 {
+    margin-top: 30px;
+}
+
+.marginbottom30 {
+    margin-bottom: 30px;
+}
+
+.col-centered{
+    float: none;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.a-hover {
+    border: 2px solid transparent;
+}
+
+.a-hover:hover, a-hover:focus {
+    border-bottom: 2px solid #31708f;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.font10 {
+    font-size:10px;
+}
+
+h1, h2, h3 {
+    margin:0px;
+    font-family: AdaminaRegular;
+}
+
+.header-row {
+    padding: 10px 5px 10px 5px;
+    background-color: #57a0de;
+    height: 50px;
+}
+
+.footer-row {
+    background-color: #57a0de;
+    color: #FFFFFF;
+    padding: 10px 0px 10px 0px;
+}
+
+.header-row > div {
+    padding: 0px !important;
+}
+
+.main-container-div-login {
+    min-height: 100%;
+    background: url(file:///D:/GCMS%20Pages/resources/images/login-background.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.main-container-div {
+    min-height: 100%;
+}
+
+.signin-box {
+    border: 5px solid #aeaeae;
+    border-radius: 10px;
+    padding: 20px 20px 10px 20px;
+    margin-top: 15%;
+    background-color:#f0f8ff;
+    min-height: 400px;
+}
+
+.login-logo {
+    border-bottom: 1px solid black;
+    padding-bottom: 10px;
+}
+
+.home-my-list-btn {
+    margin: 5% 0% 0% 0%;
+    padding: 70px 10px 50px 10px;
+    border-radius: 6px;
+    background-color: #f0f8ff;
+}
+
+.home-search-bar-cont {
+    padding: 5% 0% 5% 0%;
+}
+
+.mylist-cont {
+    background-color: #f0f8ff;
+    border-radius: 6px;
+    padding: 20px 10px 10px 10px;
+}
+
+.company-header {
+    background-color: rgba(97, 196, 217, 0.7);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    overflow: hidden;
+}
+
+.comp-sec-info {
+    overflow: hidden;
+    background-color: rgba(155, 202, 212, 0.07);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.comp-notes-ta {
+    min-height: 140px;
+}

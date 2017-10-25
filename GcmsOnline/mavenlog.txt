@@ -1,0 +1,22 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building GcmsOnline 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+Downloading: http://dbdldevap01.uk.dnb.com:5000/nexus/content/groups/public/com/oracle/ojdbc7/12.1.0.1/ojdbc7-12.1.0.1.pom
+[WARNING] The POM for com.oracle:ojdbc7:jar:12.1.0.1 is missing, no dependency information available
+Downloading: http://dbdldevap01.uk.dnb.com:5000/nexus/content/groups/public/com/oracle/ojdbc7/12.1.0.1/ojdbc7-12.1.0.1.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.775s
+[INFO] Finished at: Thu Oct 05 17:55:31 IST 2017
+[INFO] Final Memory: 14M/307M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project GcmsOnline: Could not resolve dependencies for project com.dnb:GcmsOnline:war:0.0.1-SNAPSHOT: Could not find artifact com.oracle:ojdbc7:jar:12.1.0.1 in nexus (http://dbdldevap01.uk.dnb.com:5000/nexus/content/groups/public) -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
